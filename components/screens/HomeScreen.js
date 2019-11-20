@@ -6,7 +6,11 @@ import PaymentImg from '../../assets/payments.svg';
 
 const HomeScreen = () => {
   return (
-    <View style={{ flex: 1 }}>
+    <View
+      style={{
+        flex: 1
+      }}
+    >
       <View style={styles.container}>
         <TouchableOpacity style={styles.tap}>
           <Text style={styles.tapText}>TAP</Text>
@@ -20,25 +24,33 @@ const HomeScreen = () => {
           </TouchableOpacity>
         </View>
       </View>
-      <View style={{ flex: 7, padding: 20 }}>
+
+      <View style={styles.payContainer}>
         <PaymentImg width={360} height={360} />
-        <Text style={styles.payTxt}>Pay online or offline</Text>
-        <Text style={styles.payTxt}>
-          with just a{' '}
-          <Text
-            style={{
-              color: 'mediumslateblue'
-            }}
-          >
-            "tap"
+        <View style={{ flex: 1 }}>
+          <Text style={styles.payTxt}>Pay online or offline</Text>
+          <Text style={styles.payTxt}>
+            with just a{' '}
+            <Text
+              style={{
+                color: 'mediumslateblue'
+              }}
+            >
+              "tap"
+            </Text>
           </Text>
-        </Text>
+        </View>
+      </View>
+
+      <View style={styles.tapContainer}>
         <TouchableOpacity style={styles.cardContainer}>
           <View style={styles.cardIcon}>
             <UserIcon name='creditcard' size={32} color='mediumslateblue' />
             <Text style={styles.cardIconTxt}>Tap to add a card</Text>
           </View>
         </TouchableOpacity>
+      </View>
+      <View style={styles.tapContainer}>
         <TouchableOpacity style={styles.payBtn}>
           <Text style={styles.payBtnTxt}>Pay now</Text>
           <UserIcon name='arrowright' size={32} color='white' />
@@ -52,10 +64,11 @@ export default HomeScreen;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    display: 'flex',
+
     flexDirection: 'row',
-    padding: 20,
-    paddingTop: 50
+    padding: 50,
+    justifyContent: 'space-between'
   },
   tap: {
     borderRadius: 50,
@@ -68,13 +81,14 @@ const styles = StyleSheet.create({
   },
   tapText: {
     fontSize: 20,
-    color: 'mediumslateblue',
-    fontFamily: 'roboto-bold'
+    color: 'mediumslateblue'
   },
   iconContainer: {
+    display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'flex-end',
-    flex: 1
+    paddingLeft: 20,
+    flex: 1,
+    justifyContent: 'flex-end'
   },
   rocketIcon: {
     marginRight: 50,
@@ -96,32 +110,32 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   payTxt: {
-    fontSize: 35,
-    color: 'darkslategrey',
-    fontFamily: 'roboto-bolditalic'
+    fontSize: 30,
+    color: 'darkslategrey'
   },
   cardContainer: {
     justifyContent: 'center',
     height: 90,
-    alignSelf: 'center',
+
     width: 500,
-    marginTop: 70,
+
     borderRadius: 10,
     borderColor: 'grey',
     borderWidth: 1
   },
   cardIcon: {
-    width: 300,
     alignItems: 'center',
     justifyContent: 'flex-start',
     display: 'flex',
     flexDirection: 'row',
-    marginLeft: 30
+
+    flex: 1,
+    padding: 20
   },
   cardIconTxt: {
     fontSize: 30,
-    marginLeft: 30,
-    fontFamily: 'roboto-bold',
+    padding: 20,
+
     color: 'darkslategrey'
   },
   payBtn: {
@@ -131,7 +145,7 @@ const styles = StyleSheet.create({
     height: 70,
     alignSelf: 'center',
     width: 250,
-    marginTop: 50,
+
     borderRadius: 50,
     borderColor: 'grey',
     borderWidth: 1,
@@ -142,7 +156,17 @@ const styles = StyleSheet.create({
   payBtnTxt: {
     fontSize: 25,
     padding: 10,
-    color: 'white',
-    fontFamily: 'roboto-bold'
+    color: 'white'
+  },
+  payContainer: {
+    flex: 3,
+    padding: 20,
+    justifyContent: 'center'
+  },
+  tapContainer: {
+    flex: 1,
+
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 });
