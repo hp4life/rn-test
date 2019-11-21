@@ -1,64 +1,75 @@
-import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import React, { Component } from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  Dimensions
+} from 'react-native';
 import RocketIcon from '@expo/vector-icons/Ionicons';
 import UserIcon from '@expo/vector-icons/AntDesign';
 import PaymentImg from '../../assets/payments.svg';
 
-const HomeScreen = () => {
-  return (
-    <View
-      style={{
-        flex: 1
-      }}
-    >
-      <View style={styles.container}>
-        <TouchableOpacity style={styles.tap}>
-          <Text style={styles.tapText}>TAP</Text>
-        </TouchableOpacity>
-        <View style={styles.iconContainer}>
-          <TouchableOpacity style={styles.rocketIcon}>
-            <RocketIcon name='md-rocket' size={32} color='mediumslateblue' />
+class HomeScreen extends Component {
+  render() {
+    const dimensions = Dimensions.get('window');
+    const imgHeight = Math.round((dimensions.width * 9) / 16);
+    const imageWidth = dimensions.width;
+    return (
+      <View
+        style={{
+          flex: 1
+        }}
+      >
+        <View style={styles.container}>
+          <TouchableOpacity style={styles.tap}>
+            <Text style={styles.tapText}>TAP</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.userIcon}>
-            <UserIcon name='user' size={32} color='mediumslateblue' />
-          </TouchableOpacity>
-        </View>
-      </View>
-
-      <View style={styles.payContainer}>
-        <PaymentImg width={360} height={360} />
-        <View style={{ flex: 1 }}>
-          <Text style={styles.payTxt}>Pay online or offline</Text>
-          <Text style={styles.payTxt}>
-            with just a{' '}
-            <Text
-              style={{
-                color: 'mediumslateblue'
-              }}
-            >
-              "tap"
-            </Text>
-          </Text>
-        </View>
-      </View>
-
-      <View style={styles.tapContainer}>
-        <TouchableOpacity style={styles.cardContainer}>
-          <View style={styles.cardIcon}>
-            <UserIcon name='creditcard' size={32} color='mediumslateblue' />
-            <Text style={styles.cardIconTxt}>Tap to add a card</Text>
+          <View style={styles.iconContainer}>
+            <TouchableOpacity style={styles.rocketIcon}>
+              <RocketIcon name='md-rocket' size={32} color='mediumslateblue' />
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.userIcon}>
+              <UserIcon name='user' size={32} color='mediumslateblue' />
+            </TouchableOpacity>
           </View>
-        </TouchableOpacity>
+        </View>
+
+        <View style={styles.payContainer}>
+          <PaymentImg width={imageWidth} height={imgHeight} />
+          <View style={{ flex: 1 }}>
+            <Text style={styles.payTxt}>Pay online or offline</Text>
+            <Text style={styles.payTxt}>
+              with just a{' '}
+              <Text
+                style={{
+                  color: 'mediumslateblue'
+                }}
+              >
+                "tap"
+              </Text>
+            </Text>
+          </View>
+        </View>
+
+        <View style={styles.tapContainer}>
+          <TouchableOpacity style={styles.cardContainer}>
+            <View style={styles.cardIcon}>
+              <UserIcon name='creditcard' size={32} color='mediumslateblue' />
+              <Text style={styles.cardIconTxt}>Tap to add a card</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.tapContainer}>
+          <TouchableOpacity style={styles.payBtn}>
+            <Text style={styles.payBtnTxt}>Pay now</Text>
+            <UserIcon name='arrowright' size={32} color='white' />
+          </TouchableOpacity>
+        </View>
       </View>
-      <View style={styles.tapContainer}>
-        <TouchableOpacity style={styles.payBtn}>
-          <Text style={styles.payBtnTxt}>Pay now</Text>
-          <UserIcon name='arrowright' size={32} color='white' />
-        </TouchableOpacity>
-      </View>
-    </View>
-  );
-};
+    );
+  }
+}
 
 export default HomeScreen;
 
@@ -67,7 +78,7 @@ const styles = StyleSheet.create({
     display: 'flex',
 
     flexDirection: 'row',
-    padding: 50,
+    padding: 30,
     justifyContent: 'space-between'
   },
   tap: {
@@ -91,7 +102,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end'
   },
   rocketIcon: {
-    marginRight: 50,
+    marginRight: 20,
     borderColor: 'grey',
     borderWidth: 1,
     borderRadius: 50,
@@ -115,9 +126,9 @@ const styles = StyleSheet.create({
   },
   cardContainer: {
     justifyContent: 'center',
-    height: 90,
+    height: '60%',
 
-    width: 500,
+    width: '80%',
 
     borderRadius: 10,
     borderColor: 'grey',
@@ -142,9 +153,9 @@ const styles = StyleSheet.create({
     backgroundColor: 'mediumslateblue',
     alignItems: 'center',
     justifyContent: 'center',
-    height: 70,
+    height: '50%',
     alignSelf: 'center',
-    width: 250,
+    width: '50%',
 
     borderRadius: 50,
     borderColor: 'grey',

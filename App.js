@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Dimensions } from 'react-native';
 import HomeScreen from './components/screens/HomeScreen';
-import * as Font from 'expo-font';
+// import * as Font from 'expo-font';
 
 class App extends Component {
   // state = {
@@ -21,6 +21,7 @@ class App extends Component {
   // }
 
   render() {
+    console.log(Dimensions.get('window').height);
     return (
       <View style={styles.container}>
         <HomeScreen />
